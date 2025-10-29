@@ -1,11 +1,9 @@
 # Base image with CUDA 12.2 + cuDNN + TensorRT 8.6.1
-FROM nvcr.io/nvidia/tensorrt:23.09-py3
+FROM nvcr.io/nvidia/tensorrt:23.06-py3
 
 USER root
 
-RUN apt update && apt install -y git git-lfs wget ffmpeg
-
-RUN python3 -m pip install --upgrade pip
+RUN apt update && apt install -y git git-lfs wget curl ffmpeg
 
 # Install PyTorch (compatible with CUDA 12)
 RUN pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121
