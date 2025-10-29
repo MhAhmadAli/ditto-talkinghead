@@ -5,6 +5,8 @@ USER root
 
 RUN apt update && apt install -y git git-lfs wget curl ffmpeg
 
+RUN python3 -m pip install --upgrade pip
+
 # Install PyTorch (compatible with CUDA 12)
 RUN pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121
 
